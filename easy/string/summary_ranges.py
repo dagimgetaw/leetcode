@@ -1,0 +1,29 @@
+class Solution:
+    def summaryRanges(self, nums: list[int]) -> list[str]:
+        if not nums:
+            return []
+        
+        res = []
+        start = nums[0]
+        
+        for i in range(1, len(nums)):
+            if nums[i-1] + 1 != nums[i]:
+                if start == nums[i - 1]:
+                    res.append(str(start))
+                else:
+                    res.append(f"{start}->{nums[i - 1]}")
+                    
+                start = nums[i]
+                
+        if start == nums[-1]:
+            res.append(str(start))
+        else:
+            res.append(f"{start}->{nums[-1]}")
+        
+        return res
+    
+    
+    
+nums = [0,2,3,4,6,8,9]
+sol = Solution()
+print(sol.summaryRanges(nums))
