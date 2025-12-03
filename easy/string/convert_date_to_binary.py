@@ -15,8 +15,5 @@ class Solution:
         output += str(bin(day)[2:])
         
         return output
+        
     
-    
-date = "2080-02-29"
-sol  = Solution()
-print(sol.convertDateToBinary(date))
