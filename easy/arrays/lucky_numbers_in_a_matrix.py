@@ -1,14 +1,19 @@
 class Solution:
-    def luckyNumbers(self, matrix: list[list[int]]) -> list[int]:
+    def luckyNumbers(self, matrix: List[List[int]]) -> List[int]:
         arr = []
         
         for row in matrix:
             min_row = min(row)
             index = row.index(min_row)
+            col_arr = []
             
-            print(min_row, index)
+            for col in matrix:
+                col_arr.append(col[index])
+                
+            max_col = max(col_arr)
             
-        return matrix
-    
-matrix = [[3,7,8],[9,11,13],[15,16,17]]
-print(Solution().luckyNumbers(matrix))
+            if min_row == max_col:
+                arr.append(min_row)
+            
+        return arr
+        
